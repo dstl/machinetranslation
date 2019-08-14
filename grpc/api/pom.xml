@@ -28,6 +28,12 @@
 		<connection>scm:git:git://github.com/dstl/machinetranslation.git</connection>
 	</scm>
 
+	<developers>
+		<developer>
+			<organization>Dstl</organization>
+		</developer>
+	</developers>
+
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
