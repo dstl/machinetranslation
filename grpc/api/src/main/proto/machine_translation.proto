@@ -1,0 +1,83 @@
+/*-
+ * #%L
+ * Machine Translation gRPC API
+ * %%
+ * Copyright (C) 2019 Dstl
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+
+syntax = "proto3";
+
+package uk.gov.dstl.machinetranslation;
+
+// Request to query supported languages
+message SupportedLanguagesRequest {}
+
+// Response from supported languages request
+message SupportedLanguagesResponse {
+    repeated LanguagePair languages = 1;    //List of language pairs
+}
+
+// A pair of languages supported for translation
+message LanguagePair {
+    string source_language = 1;     //Source Language (ISO code)
+    string target_language = 2;     //Target Language (ISO code)
+}
+
+// Request to identify the language of a piece of content
+message IdentifyLanguageRequest {
+    string content = 1;    //Content in unknown language
+}
+
+// Response from identify language request
+message IdentifyLanguageResponse {
+    repeated LanguageDetection detections = 1;  //List of language detections
+}
+
+// A possible language detection, with associated probability
+message LanguageDetection {
+    string language = 1;        //Language (ISO code)
+    float probability = 2;      //Probability that text is this language (between 0 and 1)
+}
+
+// Request to translate some content
+message TranslationRequest {
+    string source_language = 1;     //Source Language (ISO code), or AUTO
+    string target_language = 2;     //Target Language (ISO code)
+    string content = 3;             //Content to be translated (plain text)
+}
+
+// Response from a translation request
+message TranslationResponse {
+    string language = 1;        //Language of translated text (ISO code)
+    string content = 2;         //Translated content
+}
+
+// Request for information about the current engine
+message QueryEngineRequest {}
+
+// Response to a request for information about the current engine
+message QueryEngineResponse {
+    string name = 1;        //Name of translation engine
+    string version = 2;     //Version of translation engine
+}
+
+// Machine Translation service API definition
+service MachineTranslationService {
+    rpc SupportedLanguages (SupportedLanguagesRequest) returns (SupportedLanguagesResponse);    //Query supported language pairs for this engine
+    rpc IdentifyLanguage (IdentifyLanguageRequest) returns (IdentifyLanguageResponse);          //Identify the language a String is written in
+    rpc Translate (TranslationRequest) returns (TranslationResponse);                           //Translate content
+    rpc QueryEngine (QueryEngineRequest) returns (QueryEngineResponse);                         //Query information about this engine
+}

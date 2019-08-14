@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>uk.gov.dstl.machinetranslation</groupId>
+  <artifactId>connectors</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <name>MT Connectors</name>
+  <description>Container POM with all connector implementations as modules for easy building, testing, etc.</description>
+  <inceptionYear>2019</inceptionYear>
+
+  <organization>
+    <name>Dstl</name>
+    <url>http://www.dstl.gov.uk</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <modules>
+    <module>connector-aws</module>
+    <module>connector-google</module>
+    <module>connector-joshua</module>
+    <module>connector-moses</module>
+    <module>connector-remedi</module>
+    <module>connector-systran</module>
+  </modules>
+</project>
