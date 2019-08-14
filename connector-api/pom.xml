@@ -11,6 +11,7 @@
   <name>Machine Translation Connector API</name>
   <description>Defines the connector API used to communicate with machine translation engines</description>
   <inceptionYear>2019</inceptionYear>
+  <url>https://github.com/dstl/machinetranslation</url>
 
   <organization>
     <name>Dstl</name>
@@ -23,6 +24,17 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
+
+  <scm>
+    <url>https://github.com/dstl/machinetranslation</url>
+    <connection>scm:git:git://github.com/dstl/machinetranslation.git</connection>
+  </scm>
+
+  <developers>
+    <developer>
+      <organization>Dstl</organization>
+    </developer>
+  </developers>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>

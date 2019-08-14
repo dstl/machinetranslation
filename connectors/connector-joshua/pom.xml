@@ -16,6 +16,7 @@
   <name>MT API Connector for Apache Joshua</name>
   <description>Provides a MT API connector for Apache Joshua</description>
   <inceptionYear>2019</inceptionYear>
+  <url>https://github.com/dstl/machinetranslation</url>
 
   <organization>
     <name>Dstl</name>
@@ -28,6 +29,17 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
+
+  <scm>
+    <url>https://github.com/dstl/machinetranslation</url>
+    <connection>scm:git:git://github.com/dstl/machinetranslation.git</connection>
+  </scm>
+
+  <developers>
+    <developer>
+      <organization>Dstl</organization>
+    </developer>
+  </developers>
 
   <dependencies>
     <dependency>

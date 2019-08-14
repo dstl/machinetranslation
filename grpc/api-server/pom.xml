@@ -9,6 +9,7 @@
 	<name>MT Server</name>
 	<description>Machine Translation API Server</description>
 	<inceptionYear>2019</inceptionYear>
+	<url>https://github.com/dstl/machinetranslation</url>
 
 	<organization>
 		<name>Dstl</name>
@@ -21,6 +22,17 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
+
+	<scm>
+		<url>https://github.com/dstl/machinetranslation</url>
+		<connection>scm:git:git://github.com/dstl/machinetranslation.git</connection>
+	</scm>
+
+	<developers>
+		<developer>
+			<organization>Dstl</organization>
+		</developer>
+	</developers>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

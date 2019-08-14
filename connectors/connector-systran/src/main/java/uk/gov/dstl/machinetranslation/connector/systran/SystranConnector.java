@@ -20,6 +20,11 @@ package uk.gov.dstl.machinetranslation.connector.systran;
  * #L%
  */
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import net.systran.platform.translation.client.ApiClient;
 import net.systran.platform.translation.client.ApiException;
 import net.systran.platform.translation.client.api.TranslationApi;
@@ -31,12 +36,6 @@ import uk.gov.dstl.machinetranslation.connector.api.*;
 import uk.gov.dstl.machinetranslation.connector.api.exceptions.ConfigurationException;
 import uk.gov.dstl.machinetranslation.connector.api.exceptions.ConnectorException;
 import uk.gov.dstl.machinetranslation.connector.api.utils.ConnectorUtils;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /** Connector for SYSTRAN */
 public class SystranConnector implements MTConnectorApi {
