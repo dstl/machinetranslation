@@ -7,11 +7,11 @@
   <parent>
     <groupId>uk.gov.dstl.machinetranslation</groupId>
     <artifactId>connector-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>connector-moses</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>MT API Connector for Moses</name>
   <description>Provides a MT API connector for Moses</description>

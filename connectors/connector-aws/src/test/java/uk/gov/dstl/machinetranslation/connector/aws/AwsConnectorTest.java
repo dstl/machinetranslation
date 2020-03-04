@@ -58,7 +58,7 @@ public class AwsConnectorTest {
   public void testSupportedLanguages() {
     AwsConnector ac = new AwsConnector(mockTranslate, mockComprehend);
 
-    assertThrows(UnsupportedOperationException.class, () -> ac.supportedLanguages());
+    assertThrows(UnsupportedOperationException.class, ac::supportedLanguages);
   }
 
   @Test
@@ -84,7 +84,7 @@ public class AwsConnectorTest {
 
     verify(mockComprehend, times(1)).detectDominantLanguage(any());
     verifyNoMoreInteractions(mockComprehend);
-    verifyZeroInteractions(mockTranslate);
+    verifyNoInteractions(mockTranslate);
   }
 
   @Test
@@ -112,7 +112,7 @@ public class AwsConnectorTest {
 
     verify(mockTranslate, times(1)).translateText(any());
     verifyNoMoreInteractions(mockTranslate);
-    verifyZeroInteractions(mockComprehend);
+    verifyNoInteractions(mockComprehend);
   }
 
   @Test
@@ -132,7 +132,7 @@ public class AwsConnectorTest {
 
     verify(mockTranslate, times(1)).translateText(any());
     verifyNoMoreInteractions(mockTranslate);
-    verifyZeroInteractions(mockComprehend);
+    verifyNoInteractions(mockComprehend);
   }
 
   @Test

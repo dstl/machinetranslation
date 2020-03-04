@@ -6,7 +6,7 @@
 
   <groupId>uk.gov.dstl.machinetranslation</groupId>
   <artifactId>connector-parent</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>MT Connector Parent</name>
@@ -42,15 +42,15 @@
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <connector-api.version>1.0.0</connector-api.version>
+    <connector-api.version>1.0.1-SNAPSHOT</connector-api.version>
 
-    <junit.version>5.5.0</junit.version>
-    <mockito.version>2.28.2</mockito.version>
+    <junit.version>5.6.0</junit.version>
+    <mockito.version>3.3.0</mockito.version>
 
-    <javadoc.version>3.1.0</javadoc.version>
-    <shade.version>3.2.1</shade.version>
-    <source.version>3.1.0</source.version>
-    <spotless.version>1.23.1</spotless.version>
+    <javadoc.version>3.1.1</javadoc.version>
+    <shade.version>3.2.2</shade.version>
+    <source.version>3.2.1</source.version>
+    <spotless.version>1.27.0</spotless.version>
     <surefire.version>2.22.2</surefire.version>
   </properties>
 

@@ -6,7 +6,7 @@
 
   <groupId>uk.gov.dstl.machinetranslation</groupId>
   <artifactId>connector-api</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>Machine Translation Connector API</name>
   <description>Defines the connector API used to communicate with machine translation engines</description>
@@ -46,7 +46,7 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.5.0</version>
+      <version>5.6.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -56,7 +56,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.1.2</version>
+        <version>3.2.0</version>
         <executions>
           <execution>
             <goals>
@@ -69,7 +69,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.2.1</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -83,7 +83,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.1.1</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -97,7 +97,7 @@
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>
-        <version>1.23.1</version>
+        <version>1.27.0</version>
         <configuration>
           <java>
             <googleJavaFormat>

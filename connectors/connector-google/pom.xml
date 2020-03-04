@@ -7,11 +7,11 @@
   <parent>
     <groupId>uk.gov.dstl.machinetranslation</groupId>
     <artifactId>connector-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>connector-google</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>MT API Connector for Google Cloud Translate</name>
   <description>Provides a MT API connector for Google Cloud Translate</description>
@@ -45,7 +45,7 @@
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-translate</artifactId>
-      <version>1.81.0</version>
+      <version>1.94.3</version>
     </dependency>
   </dependencies>
 </project>

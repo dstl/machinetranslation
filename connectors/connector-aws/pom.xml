@@ -7,11 +7,11 @@
   <parent>
     <groupId>uk.gov.dstl.machinetranslation</groupId>
     <artifactId>connector-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>connector-aws</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>MT API Connector for AWS Translate</name>
   <description>Provides a MT API connector for Amazon Web Services (AWS) Translate</description>
@@ -45,12 +45,12 @@
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-java-sdk-translate</artifactId>
-      <version>1.11.587</version>
+      <version>1.11.736</version>
     </dependency>
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-java-sdk-comprehend</artifactId>
-      <version>1.11.587</version>
+      <version>1.11.736</version>
     </dependency>
   </dependencies>
 </project>

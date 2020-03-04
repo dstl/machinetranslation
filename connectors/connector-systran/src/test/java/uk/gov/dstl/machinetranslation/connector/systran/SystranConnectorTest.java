@@ -87,7 +87,7 @@ public class SystranConnectorTest {
     assertThrows(
         UnsupportedOperationException.class, () -> sc.identifyLanguage("Bonjour le monde"));
 
-    verifyZeroInteractions(mockApi);
+    verifyNoInteractions(mockApi);
   }
 
   @Test

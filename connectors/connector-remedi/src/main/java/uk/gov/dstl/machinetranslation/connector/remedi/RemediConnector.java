@@ -203,6 +203,8 @@ public class RemediConnector implements MTConnectorApi {
           throw new ConnectorException(
               "REMEDI returned a non-OK error code ("
                   + response.getStatusCode().name()
+                  + " - "
+                  + response.getStatusMessage()
                   + ") during pre-processing");
 
         processed = response.getText();
@@ -227,6 +229,8 @@ public class RemediConnector implements MTConnectorApi {
         throw new ConnectorException(
             "REMEDI returned a non-OK error code ("
                 + translationResponse.getStatusCode().name()
+                + " - "
+                + translationResponse.getStatusMessage()
                 + ") during translation");
 
       processed = translationResponse.assembleTargetData(" ", true);
@@ -239,6 +243,8 @@ public class RemediConnector implements MTConnectorApi {
           throw new ConnectorException(
               "REMEDI returned a non-OK error code ("
                   + response.getStatusCode().name()
+                  + " - "
+                  + response.getStatusMessage()
                   + ") during post-processing");
 
         processed = response.getText();

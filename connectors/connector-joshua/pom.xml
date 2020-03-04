@@ -7,11 +7,11 @@
   <parent>
     <groupId>uk.gov.dstl.machinetranslation</groupId>
     <artifactId>connector-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>connector-joshua</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>MT API Connector for Apache Joshua</name>
   <description>Provides a MT API connector for Apache Joshua</description>
@@ -45,7 +45,7 @@
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
-      <version>4.5.9</version>
+      <version>4.5.11</version>
     </dependency>
     <dependency>
       <groupId>com.jayway.jsonpath</groupId>
@@ -56,7 +56,7 @@
     <dependency>
       <groupId>org.mock-server</groupId>
       <artifactId>mockserver-netty</artifactId>
-      <version>5.6.0</version>
+      <version>5.9.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
