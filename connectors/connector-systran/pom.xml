@@ -56,21 +56,13 @@
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire.version}</version>
-        <executions>
-          <execution>
-            <phase>integration-test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <systemPropertyVariables>
-                <systranApiKey>${systranApiKey}</systranApiKey>
-              </systemPropertyVariables>
-            </configuration>
-          </execution>
-        </executions>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${failsafe.version}</version>
+        <configuration>
+          <systemPropertyVariables>
+            <systranApiKey>${systranApiKey}</systranApiKey>
+          </systemPropertyVariables>
+        </configuration>
       </plugin>
     </plugins>
   </build>
