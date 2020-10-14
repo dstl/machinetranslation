@@ -29,6 +29,20 @@ import org.junit.jupiter.api.Test;
 import uk.gov.dstl.machinetranslation.connector.api.exceptions.ConfigurationException;
 
 public class ConfigurationUtilsTest {
+
+  @Test
+  public void testGetInteger() throws ConfigurationException {
+    assertThrows(ConfigurationException.class, () -> ConfigurationUtils.getInteger(null));
+
+    assertEquals(57, ConfigurationUtils.getInteger(57));
+    assertEquals(57, ConfigurationUtils.getInteger("57"));
+
+    assertThrows(ConfigurationException.class, () -> ConfigurationUtils.getInteger("Not a number"));
+    assertThrows(
+        ConfigurationException.class,
+        () -> ConfigurationUtils.getURI(new ComplexObject("HELLO WORLD", 17)));
+  }
+
   @Test
   public void testGetURI() throws URISyntaxException, ConfigurationException {
     URI truth = new URI("http://localhost/hello_world");

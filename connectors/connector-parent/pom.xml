@@ -44,13 +44,13 @@
 
     <connector-api.version>1.0.1-SNAPSHOT</connector-api.version>
 
-    <junit.version>5.6.0</junit.version>
-    <mockito.version>3.3.0</mockito.version>
+    <junit.version>5.7.0</junit.version>
+    <mockito.version>3.5.13</mockito.version>
 
-    <javadoc.version>3.1.1</javadoc.version>
-    <shade.version>3.2.2</shade.version>
+    <javadoc.version>3.2.0</javadoc.version>
+    <shade.version>3.2.4</shade.version>
     <source.version>3.2.1</source.version>
-    <spotless.version>1.27.0</spotless.version>
+    <spotless.version>2.4.2</spotless.version>
     <surefire.version>2.22.2</surefire.version>
     <failsafe.version>2.22.2</failsafe.version>
   </properties>

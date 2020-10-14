@@ -51,4 +51,23 @@ public class ConfigurationUtils {
       }
     }
   }
+
+  /**
+   * Safely cast an object to an Integer, throwing a ConfigurationException if this can't be done
+   */
+  public static Integer getInteger(Object o) throws ConfigurationException {
+    if (o == null) throw new ConfigurationException("Configuration value can't be null");
+
+    if (o instanceof Integer) {
+      return (Integer) o;
+    } else if (o instanceof String) {
+      try {
+        return Integer.parseInt((String) o);
+      } catch (NumberFormatException e) {
+        throw new ConfigurationException("Couldn't create Integer from String [" + o + "]", e);
+      }
+    } else {
+      throw new ConfigurationException("Couldn't create Integer from Object [" + o + "]");
+    }
+  }
 }
