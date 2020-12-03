@@ -5,7 +5,7 @@ an associated connector.
 
 The `api-server` component is baked into the image at build time, to assist with,
 versioning and release. When building the image the version of the `mt-api-server`
-component you require (e.g. `api-server-1.0.0.jar`) should be placed in the directory you are running the docker
+component you require (e.g. `api-server-1.1.0-SNAPSHOT.jar`) should be placed in the directory you are running the docker
 build command from. The command to build the image is:
 
 `docker build . -t mt-api-server`
