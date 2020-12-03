@@ -27,9 +27,9 @@ To build this example, run the following command from the root directory of this
 
     mvn clean package
     
-This will create the `target/example-connector-1.0.0.jar` JAR, which can be executed using:
+This will create the `target/example-connector-1.1.0-SNAPSHOT.jar` JAR, which can be executed using:
 
-    java -jar target/example-connector-1.0.0.jar ConnectorExample "ciao mondo"
+    java -jar target/example-connector-1.1.0-SNAPSHOT.jar ConnectorExample "ciao mondo"
 
 You will see some output being printed to the console.
 Note that the `NoOpConnector` does not perform any translation, and therefore you should not be surprised that the output is the same as the input!

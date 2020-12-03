@@ -6,7 +6,7 @@
 
   <groupId>uk.gov.dstl.machinetranslation</groupId>
   <artifactId>example-connector</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
 
   <name>Machine Translation Connector API Example</name>
   <description>Example of how to use the Machine Translation Connector API</description>
@@ -33,7 +33,7 @@
     <dependency>
       <groupId>uk.gov.dstl.machinetranslation</groupId>
       <artifactId>connector-api</artifactId>
-      <version>1.0.1-SNAPSHOT</version>
+      <version>1.1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 

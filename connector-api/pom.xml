@@ -6,7 +6,7 @@
 
   <groupId>uk.gov.dstl.machinetranslation</groupId>
   <artifactId>connector-api</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
 
   <name>Machine Translation Connector API</name>
   <description>Defines the connector API used to communicate with machine translation engines</description>

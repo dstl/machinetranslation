@@ -21,7 +21,7 @@ To build this example, run the following command from the root directory of this
 
     mvn clean package
     
-This will create the `target/example-grpc-1.0.0.jar`, which contains all the examples.
+This will create the `target/example-grpc-1.1.0-SNAPSHOT.jar`, which contains all the examples.
     
 ## Running
 
@@ -29,7 +29,7 @@ This will create the `target/example-grpc-1.0.0.jar`, which contains all the exa
 
 To run the blocking example, use the following command:
 
-    java -jar target/example-grpc-1.0.0.jar uk.gov.dstl.machinetranslation.examples.GrpcBlockingExample localhost 6856 "bonjour le monde"
+    java -jar target/example-grpc-1.1.0-SNAPSHOT.jar uk.gov.dstl.machinetranslation.examples.GrpcBlockingExample localhost 6856 "bonjour le monde"
 
 You should see the result printed out to the console (note that for this example your MT API server must support detecting and translating French to get a translated response).
 
@@ -37,6 +37,6 @@ You should see the result printed out to the console (note that for this example
 
 To run the asynchronous example, use the following command:
 
-    java -jar target/example-grpc-1.0.0.jar uk.gov.dstl.machinetranslation.examples.GrpcAsyncExample localhost 6856 "bonjour le monde"
+    java -jar target/example-grpc-1.1.0-SNAPSHOT.jar uk.gov.dstl.machinetranslation.examples.GrpcAsyncExample localhost 6856 "bonjour le monde"
 
 You should see the result printed out to the console (note that for this example your MT API server must support detecting and translating French to get a translated response).
