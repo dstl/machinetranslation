@@ -12,5 +12,5 @@ WORKDIR /opt/bin/mt-api-server
 ADD api-server-*.jar .
 
 VOLUME ["/opt/bin/mt-api-server/conf"]
-ENTRYPOINT java -Dconfig.file=./conf/application.conf -cp "./*:./conf/*" MtServerApplication
+ENTRYPOINT java -Dconfig.file=./conf/application.conf -cp "./*:./conf/*" uk.gov.dstl.machinetranslation.server.MtServerApplication
 EXPOSE 6856
