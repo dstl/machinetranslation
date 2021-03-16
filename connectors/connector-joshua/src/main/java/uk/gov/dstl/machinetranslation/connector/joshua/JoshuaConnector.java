@@ -21,21 +21,32 @@ package uk.gov.dstl.machinetranslation.connector.joshua;
  */
 
 import com.jayway.jsonpath.JsonPath;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.*;
+import net.minidev.json.JSONArray;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import uk.gov.dstl.machinetranslation.connector.api.*;
+import uk.gov.dstl.machinetranslation.connector.api.EngineDetails;
+import uk.gov.dstl.machinetranslation.connector.api.LanguageDetection;
+import uk.gov.dstl.machinetranslation.connector.api.LanguagePair;
+import uk.gov.dstl.machinetranslation.connector.api.MTConnectorApi;
+import uk.gov.dstl.machinetranslation.connector.api.Translation;
 import uk.gov.dstl.machinetranslation.connector.api.exceptions.ConfigurationException;
 import uk.gov.dstl.machinetranslation.connector.api.exceptions.ConnectorException;
 import uk.gov.dstl.machinetranslation.connector.api.utils.ConfigurationUtils;
 import uk.gov.dstl.machinetranslation.connector.api.utils.ConnectorUtils;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /** Connector for Apache Joshua (https://joshua.apache.org) */
 public class JoshuaConnector implements MTConnectorApi {
@@ -136,7 +147,9 @@ public class JoshuaConnector implements MTConnectorApi {
 
       // Extract content from response
       HttpEntity entity = response.getEntity();
-      translated = JsonPath.read(entity.getContent(), "$.data.translations[0].translatedText");
+      translated =
+        ((JSONArray) JsonPath.read(entity.getContent(), "$.data.translations[*].translatedText"))
+          .stream().map(Object::toString).collect(Collectors.joining("\n"));
 
     } catch (IOException e) {
       throw new ConnectorException("Unable to communicate with server", e);

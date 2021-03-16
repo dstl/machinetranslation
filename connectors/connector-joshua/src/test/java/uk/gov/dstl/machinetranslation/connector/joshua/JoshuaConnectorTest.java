@@ -20,15 +20,6 @@ package uk.gov.dstl.machinetranslation.connector.joshua;
  * #L%
  */
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockserver.integration.ClientAndServer.startClientAndServer;
-import static org.mockserver.model.HttpRequest.request;
-import static org.mockserver.model.HttpResponse.response;
-import static org.mockserver.verify.VerificationTimes.exactly;
-
-import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.model.Parameter;
@@ -39,6 +30,16 @@ import uk.gov.dstl.machinetranslation.connector.api.exceptions.ConfigurationExce
 import uk.gov.dstl.machinetranslation.connector.api.exceptions.ConnectorException;
 import uk.gov.dstl.machinetranslation.connector.api.utils.ConnectorTestMethods;
 import uk.gov.dstl.machinetranslation.connector.api.utils.ConnectorUtils;
+
+import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockserver.integration.ClientAndServer.startClientAndServer;
+import static org.mockserver.model.HttpRequest.request;
+import static org.mockserver.model.HttpResponse.response;
+import static org.mockserver.verify.VerificationTimes.exactly;
 
 public class JoshuaConnectorTest {
 
@@ -80,6 +81,57 @@ public class JoshuaConnectorTest {
             .withPath("/")
             .withQueryStringParameters(new Parameters(new Parameter("q", "Bonjour le monde"))),
         exactly(1));
+
+    mockServer.stop();
+  }
+
+  @Test
+  public void testMultiLine() throws Exception {
+    ClientAndServer mockServer = startClientAndServer();
+
+    mockServer
+      .when(request().withMethod("GET"))
+      .respond(
+        response()
+          .withStatusCode(200)
+          .withBody(
+            "{\n"
+              + "  \"data\": {\n"
+              + "    \"translations\": [\n"
+              + "      {\n"
+              + "        \"translatedText\": \"Hello world\",\n"
+              + "        \"raw_nbest\": [\n"
+              + "          {\n"
+              + "            \"hyp\": \"hello world\",\n"
+              + "            \"totalScore\": -8.429729\n"
+              + "          }\n"
+              + "        ]\n"
+              + "      },\n"
+              + "      {\n"
+              + "        \"translatedText\": \"One two three\",\n"
+              + "        \"raw_nbest\": [\n"
+              + "          {\n"
+              + "            \"hyp\": \"one two three\",\n"
+              + "            \"totalScore\": -5.34621\n"
+              + "          }\n"
+              + "        ]\n"
+              + "      }\n"
+              + "    ]\n"
+              + "  }\n"
+              + "}"));
+
+    JoshuaConnector c =
+      new JoshuaConnector(new URI("http://localhost:" + mockServer.getLocalPort()));
+    Translation t = c.translate("fr", "en", "Bonjour le monde\nUn deux trois");
+
+    assertEquals("Hello world\nOne two three", t.getContent());
+    assertEquals("fr", t.getSourceLanguage());
+
+    mockServer.verify(
+      request()
+        .withPath("/")
+        .withQueryStringParameters(new Parameters(new Parameter("q", "Bonjour le monde\nUn deux trois"))),
+      exactly(1));
 
     mockServer.stop();
   }
