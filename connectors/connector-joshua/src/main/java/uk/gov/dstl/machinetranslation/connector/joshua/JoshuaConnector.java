@@ -148,8 +148,8 @@ public class JoshuaConnector implements MTConnectorApi {
       // Extract content from response
       HttpEntity entity = response.getEntity();
       translated =
-        ((JSONArray) JsonPath.read(entity.getContent(), "$.data.translations[*].translatedText"))
-          .stream().map(Object::toString).collect(Collectors.joining("\n"));
+          ((JSONArray) JsonPath.read(entity.getContent(), "$.data.translations[*].translatedText"))
+              .stream().map(Object::toString).collect(Collectors.joining("\n"));
 
     } catch (IOException e) {
       throw new ConnectorException("Unable to communicate with server", e);

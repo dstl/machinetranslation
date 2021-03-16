@@ -90,48 +90,49 @@ public class JoshuaConnectorTest {
     ClientAndServer mockServer = startClientAndServer();
 
     mockServer
-      .when(request().withMethod("GET"))
-      .respond(
-        response()
-          .withStatusCode(200)
-          .withBody(
-            "{\n"
-              + "  \"data\": {\n"
-              + "    \"translations\": [\n"
-              + "      {\n"
-              + "        \"translatedText\": \"Hello world\",\n"
-              + "        \"raw_nbest\": [\n"
-              + "          {\n"
-              + "            \"hyp\": \"hello world\",\n"
-              + "            \"totalScore\": -8.429729\n"
-              + "          }\n"
-              + "        ]\n"
-              + "      },\n"
-              + "      {\n"
-              + "        \"translatedText\": \"One two three\",\n"
-              + "        \"raw_nbest\": [\n"
-              + "          {\n"
-              + "            \"hyp\": \"one two three\",\n"
-              + "            \"totalScore\": -5.34621\n"
-              + "          }\n"
-              + "        ]\n"
-              + "      }\n"
-              + "    ]\n"
-              + "  }\n"
-              + "}"));
+        .when(request().withMethod("GET"))
+        .respond(
+            response()
+                .withStatusCode(200)
+                .withBody(
+                    "{\n"
+                        + "  \"data\": {\n"
+                        + "    \"translations\": [\n"
+                        + "      {\n"
+                        + "        \"translatedText\": \"Hello world\",\n"
+                        + "        \"raw_nbest\": [\n"
+                        + "          {\n"
+                        + "            \"hyp\": \"hello world\",\n"
+                        + "            \"totalScore\": -8.429729\n"
+                        + "          }\n"
+                        + "        ]\n"
+                        + "      },\n"
+                        + "      {\n"
+                        + "        \"translatedText\": \"One two three\",\n"
+                        + "        \"raw_nbest\": [\n"
+                        + "          {\n"
+                        + "            \"hyp\": \"one two three\",\n"
+                        + "            \"totalScore\": -5.34621\n"
+                        + "          }\n"
+                        + "        ]\n"
+                        + "      }\n"
+                        + "    ]\n"
+                        + "  }\n"
+                        + "}"));
 
     JoshuaConnector c =
-      new JoshuaConnector(new URI("http://localhost:" + mockServer.getLocalPort()));
+        new JoshuaConnector(new URI("http://localhost:" + mockServer.getLocalPort()));
     Translation t = c.translate("fr", "en", "Bonjour le monde\nUn deux trois");
 
     assertEquals("Hello world\nOne two three", t.getContent());
     assertEquals("fr", t.getSourceLanguage());
 
     mockServer.verify(
-      request()
-        .withPath("/")
-        .withQueryStringParameters(new Parameters(new Parameter("q", "Bonjour le monde\nUn deux trois"))),
-      exactly(1));
+        request()
+            .withPath("/")
+            .withQueryStringParameters(
+                new Parameters(new Parameter("q", "Bonjour le monde\nUn deux trois"))),
+        exactly(1));
 
     mockServer.stop();
   }
